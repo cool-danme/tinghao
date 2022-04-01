@@ -1,1 +1,169 @@
-asd
+package tinghao05;
+
+public class BasketballCoach extends Coach{
+    @Override
+    public void teach() {
+        System.out.println("篮球教练教运球");
+    }
+
+    public BasketballCoach() {
+    }
+
+    public BasketballCoach(String name, int age) {
+        super(name, age);
+    }
+
+    @Override
+    public void eat() {
+        System.out.println("篮球教练吃羊肉喝羊奶");
+    }
+}
+------------------------------------------------
+public class BasketballPlayer extends Player{
+    @Override
+    public void study() {
+        System.out.println("运动员学习如何运球和投篮");
+    }
+
+    public BasketballPlayer() {
+    }
+
+    public BasketballPlayer(String name, int age) {
+        super(name, age);
+    }
+
+    @Override
+    public void eat() {
+        System.out.println("运动员吃饭");
+    }
+}
+---------------------------------------------------
+public abstract class Coach extends person{
+    public Coach(){
+    }
+
+    public Coach(String name, int age) {
+        super(name, age);
+    }
+    public abstract void teach();
+
+    public void speak(){
+
+    }
+}
+-------------------------------------------------------
+public abstract class person {
+    private String name;
+    private int age;
+
+    public person() {
+    }
+
+    public person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public abstract void eat();
+
+}
+------------------------------------------------
+//测试类
+public class PersonDemo {
+    public static void main(String[] args) {
+        PingPangPlayer ppp = new PingPangPlayer();
+        ppp.setName("王浩");
+        ppp.setAge(30);
+        System.out.println(ppp.getName()+","+ppp.getAge());
+        ppp.eat();
+        ppp.study();
+        ppp.speak();
+        System.out.println("-----------");
+        BasketballPlayer bp=new BasketballPlayer();
+        bp.setName("姚明");
+        bp.setAge(30);
+        System.out.println(bp.getName()+","+bp.getAge());
+        bp.eat();
+        bp.study();
+        BasketballCoach bc =new BasketballCoach();
+        bc.setName("李存鑫");
+        bc.setAge(19);
+        System.out.println(bc.getName()+","+bc.getAge());
+        bc.eat();
+        bc.teach();
+    }
+}
+--------------------------------------------------------
+public class PingPangCoach extends Coach{
+
+    public PingPangCoach() {
+    }
+
+    public PingPangCoach(String name, int age) {
+        super(name, age);
+    }
+    @Override
+    public void teach() {
+        System.out.println("乒乓球教练教发球");
+    }
+
+    @Override
+    public void eat() {
+        System.out.println("乒乓球教练吃饭");
+    }
+
+    @Override
+    public void speak() {
+        System.out.println("乒乓环球教练说英语");
+    }
+}
+------------------------------------------------
+public class PingPangPlayer extends Player{
+    @Override
+    public void study() {
+        System.out.println("乒乓球运动员学习如何发球和接球");
+    }
+
+    @Override
+    public void eat() {
+        System.out.println("乒乓球运动员吃白菜");
+    }
+
+    @Override
+    public void speak() {
+        System.out.println(" 乒乓球运动员说英语");
+    }
+}
+----------------------------------------------------
+public abstract class Player extends person {
+    public Player(){
+    }
+
+    public Player(String name, int age) {
+        super(name, age);
+    }
+    public abstract void study();
+
+    public void speak(){
+
+    }
+}
+---------------------------------------------------
+public interface SpeakEnglish {
+    public abstract void speak();
+}
