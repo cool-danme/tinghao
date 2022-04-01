@@ -1,1 +1,38 @@
-as
+项目代码：
+package tinghao06;
+
+public interface Jumpping {
+    void jump();
+}
+//方法的形参是接口名，其实需要的是该接口的实现类对象；
+//方法的返回值是接口名，其实返回的是该接口的实现类对象；
+-------------------------------------------------------
+public class JumppingDemo {
+    public static void main(String[] args) {
+        //创建操作类对象，并调用方法
+        JumppingOperator jo=new JumppingOperator();
+        Jumpping j=new Cat();//多态的形式创建对象
+        jo.useJumpping(j);   //把j传递过去
+        Jumpping j2 = jo.getJumpping();//其实是把new Cat();赋值到了这里。
+        j2.jump();
+    }
+}
+--------------------------------------------------------
+public class JumppingOperator {
+    //接口不能直接实例化
+    public void useJumpping(Jumpping j) {//jumpping j=new Cat();多态的形式；形参是接口名的话，其实是要它的实现类对象
+        j.jump();                       //编译看左边，执行看右边
+    }
+
+    public Jumpping getJumpping() {//注意！接口不能实例化。
+        Jumpping j = new Cat();
+        return j;
+    }
+}
+-----------------------------------------------------
+public class Cat implements Jumpping{
+    @Override
+    public void jump() {
+        System.out.println("猫可以跳高");
+    }
+}
