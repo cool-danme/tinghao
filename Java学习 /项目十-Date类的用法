@@ -17,3 +17,23 @@ public class DateDemo01 {
         System.out.println(d1);
     }
 }
+还有一种常见用法---------------------------------------------------------------------------------
+package tinghao05;
+
+
+import java.util.Date;
+
+public class DateDemo01 {
+    //public long getTime()返回自 1970 年 1 月 1 日 00:00:00 GMT 以来此 Date 对象表示的毫秒数。
+    //public void setTime(long time)设置此 Date 对象，以表示 1970 年 1 月 1 日 00:00:00 GMT 以后 time 毫秒的时间点。
+    public static void main(String[] args) {
+        Date d = new Date();
+        /*System.out.println(d.getTime());
+         *System.out.println(d.getTime() * 1.0 / 1000 / 60 / 60 / 24 / 365 + "年");*/
+        /*//System.out.println(d);
+        //long time=1000*60*60;*/
+        long time=System.currentTimeMillis();
+        d.setTime(time);
+        System.out.println(d);
+    }
+}
