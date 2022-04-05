@@ -1,0 +1,22 @@
+package tinghao04;
+
+public class IntegerDemo {
+    public static void main(String[] args) {
+        //int--String
+        int i=10;
+        String s=""+i;
+        System.out.println(s);
+        //public static String valueOf(int i)
+        String s2 =String.valueOf(i);
+        System.out.println(s2);
+        System.out.println("------------");
+        String s3="100";
+        Integer ii=Integer.valueOf(s3);
+        int x=ii.intValue();
+        System.out.println(x);
+
+        int y=Integer.parseInt(s3);
+        System.out.println(y);
+
+    }
+}
