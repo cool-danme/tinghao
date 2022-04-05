@@ -1,0 +1,19 @@
+package tinghao05;
+
+import java.util.Date;
+
+public class DateDemo01 {
+    /*
+    * public Date()分配 Date 对象并初始化此对象，以表示分配它的时间（精确到毫秒）。
+    * public Date(long date)分配 Date 对象并初始化此对象，以表示自从标准基准时间以来的指定毫秒数。
+     * */
+    public static void main(String[] args) {
+        //public Date()分配 Date 对象并初始化此对象，以表示分配它的时间（精确到毫秒）。
+        Date d=new Date();
+        System.out.println(d);
+        //public Date(long date)分配 Date 对象并初始化此对象，以表示自从标准基准时间以来的指定毫秒数。
+        long date=60*1000*60;
+        Date d1=new Date(date);
+        System.out.println(d1);
+    }
+}
