@@ -1,0 +1,27 @@
+异常：Error，严重问题，不需要处理。
+      Expection:异常类，表示程序本身可以处理此异常。（RuntimeException在编译期是不检查的，出问题后需要回来修改代码；非RE是在编译期就必须处理的，否则不能通过编译，无法运行。）
+      Throwable：是所有异常和错误的祖宗类
+      ------------------------------------------------------------
+      package tinghao01;
+/*JVM默认处理方式*/
+public class ExceptionDemo01 {
+    public static void main(String[] args) {
+        System.out.println("开始");
+        method();
+        System.out.println("结束");
+    }
+
+    public static void method() {
+        try {
+            int[] arr = {1, 2, 3};
+//        System.out.println(arr[1]);
+            System.out.println(arr[3]);
+        } catch (ArrayIndexOutOfBoundsException e){
+//            System.out.println("你访问的索引数组不存在");
+            e.printStackTrace();  
+            System.out.println(e.getMessage());//将出现异常的原因*/
+            System.out.println(e.toString());
+        }
+    }
+}
+   
