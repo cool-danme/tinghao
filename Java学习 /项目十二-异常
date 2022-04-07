@@ -1,6 +1,8 @@
 异常：Error，严重问题，不需要处理。
       Expection:异常类，表示程序本身可以处理此异常。（RuntimeException在编译期是不检查的，出问题后需要回来修改代码；非RE是在编译期就必须处理的，否则不能通过编译，无法运行。）
       Throwable：是所有异常和错误的祖宗类
+      Java中的异常分为两大类：编译时异常和运行时异常，也被称为受检性异常和非受检性异常
+      所有的RuntimeException类及其子类被称为运行时异常，其他的异常都是编译时异常
       ------------------------------------------------------------
       package tinghao01;
 /*JVM默认处理方式*/
@@ -24,4 +26,41 @@ public class ExceptionDemo01 {
         }
     }
 }
-   
+   ----------------------------------------------------------------
+   编译时异常，运行时异常
+   package tinghao01;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+/*JVM默认处理方式*/
+public class ExceptionDemo01 {
+    public static void main(String[] args) {
+        // method();
+        method2();
+    }
+
+    //编译时异常
+    public static void method2() {
+        try {
+            String s = "2022-08-08";
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+            Date d = sdf.parse(s);
+            System.out.println(d);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    //运行时异常
+    public static void method() {
+        try {
+            int[] arr = {1, 2, 3};
+            System.out.println(arr[3]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            e.printStackTrace();
+        }
+    }
+}
