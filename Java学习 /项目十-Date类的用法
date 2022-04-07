@@ -61,4 +61,44 @@ public class DateDemo01 {
         System.out.println(dd);
     }
 }
+------------------------------------------------------------------------------
+package tinghao06;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class DateUtils {
+    private DateUtils(){}
+            public static String dateToString(Date date, String format){
+            SimpleDateFormat sdf=new SimpleDateFormat(format);
+            String s = sdf.format(date);
+            return s;
+        }
+        public static Date stringToDate(String s,String format) throws ParseException {
+        SimpleDateFormat sdf1=new SimpleDateFormat(format);
+            Date d = sdf1.parse(s);
+            return d;
+        }
+}
+
+
+package tinghao06;
+
+import java.text.ParseException;
+import java.util.Date;
+
+public class DateUtilsDemo {
+    public static void main(String[] args) throws ParseException {
+        //创建日期对象
+        Date d=new Date();
+        String s1 = DateUtils.dateToString(d, "yyyy年mm月dd日 HH:mm:ss");
+        System.out.println(s1);
+
+        System.out.println("--------------");
+    String s="2022-08-09 12:12:12";
+        Date dd = DateUtils.stringToDate(s, "yyyy-mm-dd HH:mm:ss");
+        System.out.println(dd);
+    }
+}
 
