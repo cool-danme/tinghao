@@ -64,3 +64,89 @@ public class ExceptionDemo01 {
         }
     }
 }
+------------------------------------------------------------------------
+package tinghao01;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+/*
+* throws：
+*        编译时异常必须要处理，try..catch or throws,如果采用throws,那么谁调用谁处理
+*        运行时异常可以不处理，回来修改代码
+* */
+
+public class ExceptionDemo01 {
+    public static void main(String[] args) {
+        System.out.println("开始");
+        try {
+            method2();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+//        method();
+        System.out.println("结束");
+    }
+    //编译时异常
+    public static void method2() throws ParseException {
+            String s = "2022-08-08";
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+            Date d = sdf.parse(s);
+            System.out.println(d);
+        }
+    //运行时异常
+        /*
+        * public static void method() throws ArrayIndexOutOfBoundsException{//仅仅只是把异常抛出去了
+        int[] arr={1,2,3};
+            System.out.println(arr[3]);
+        }
+        *
+        * */
+    }
+    -----------------------------------------------------------------------------------
+    自定义异常
+            注：throws：用在方法声明后面，跟的是异常类名；表示抛出异常，由该方法的调用者处理，表示出现异常的可能性，并不一定发生异常
+                 throw：用在方法体内，跟的是异常对象名；表示抛出异常，由方法体内的语句处理，
+    package tinghao02;
+
+public class ScoreException extends Exception {
+
+    public ScoreException(){}
+    public ScoreException(String message){
+    super(message);
+    }
+
+}
+
+-----
+package tinghao02;
+
+public class teacher {
+        public void checkScore(int score) throws ScoreException{
+            if (score<0||score>100){
+                throw new ScoreException("你给的分数有误");
+            }else {
+                System.out.println("分数正常");
+            }
+        }
+}
+------package tinghao02;
+
+import java.util.Scanner;
+
+public class teacherTest {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("请输入分数：");
+        int score = sc.nextInt();
+        teacher t=new teacher();
+        try {
+            t.checkScore(score);
+        } catch (ScoreException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
