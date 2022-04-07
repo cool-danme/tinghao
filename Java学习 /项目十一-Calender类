@@ -1,0 +1,39 @@
+package tinghao07;
+
+
+import java.util.Calendar;
+
+public class CalendarDemo {
+    public static void main(String[] args) {
+        //获取对象
+        Calendar c = Calendar.getInstance();
+        System.out.println(c);
+        int i = c.get(Calendar.YEAR);
+        int i1 = c.get(Calendar.MONTH);
+        int i2 = c.get(Calendar.DATE);
+        System.out.println(i+"年"+i1+"月"+i2+"日");
+    }
+}
+--------------------------------------------------------------
+二月天
+package eryuetian;
+
+import java.util.Calendar;
+import java.util.Scanner;
+
+public class CalendarTest {
+    public static void main(String[] args) {
+        //键盘录入任意年份
+        Scanner s = new Scanner(System.in);
+        System.out.println("请输入年份：");
+        int i = s.nextInt();
+        //设置日历对象的年月日
+        Calendar c = Calendar.getInstance();
+        c.set(i, 2, 1);
+        c.add(Calendar.DATE, -1);
+        int date = c.get(Calendar.DATE);
+        System.out.println(i + "年的2月份有" + date + "天");
+
+
+    }
+}
